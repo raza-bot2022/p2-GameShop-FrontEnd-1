@@ -1,0 +1,90 @@
+body{
+    margin: 0;
+    background-image: url('https://wallpaperaccess.com/full/2092839.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size:cover;
+}
+
+/* NAV BAR STUFF */
+
+nav{
+    width: 100%;
+    float: left;
+}
+
+.topBar{
+    margin: 0;
+    padding: 8px;
+    height: 75px;
+    background-color: blue;
+}
+
+.topBar li{
+    display: inline;
+}
+
+.topBarHover:hover {
+
+    background: lightblue;
+
+}
+
+.button {
+    font-family: Arial;
+    font-style: none;
+    font-size: 50px;
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+}
+
+.topRightPosition {
+    float: right;
+    font-family: Arial;
+    font-style: none;
+    font-size: 35px;
+    color: white;
+    padding: 20px;
+    text-decoration: none;
+}
+
+/* AFTER NAV BAR */
+
+.mainHeader{
+    font-size: 45;
+    font-family:'Courier New', Courier, monospace;
+    padding: 125px;
+    text-align: center;
+}
+
+.homeMainButtons {
+    display: flex;
+    justify-content: center;
+}
+
+#RentGamesButton {
+    margin-right: 125px;
+    background-color: red;
+}
+
+#MyRentalsButton {
+    background-color:aquamarine;
+}
+
+.noUnderline {
+    text-decoration: none;
+    font-size:xx-large;
+    color: black;
+}
+
+.noUnderline:hover {
+    color: white;
+}
+
+.bigButton {
+    height: 100px;
+    width: 200px;
+    border-radius:75px;
+}
+
