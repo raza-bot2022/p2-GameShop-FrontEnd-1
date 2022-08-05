@@ -2,8 +2,21 @@
     <head>
         <title>LogIn</title>
         <style>
+            div {
+                position:absolute;
+                left: 45%;
+                background-color: white;
+                padding: 20px;
+                border-radius: 20px;
+                width: min-content;
+                
+            }
+
+            body{background-color: cadetblue;}
+            
             button{
-                position: relative; left: 710px; 
+                position: relative;
+                left: 30px;
                 background-color: #4CAF50; /* Green */
                 border: none;
                 color: white;
@@ -15,9 +28,10 @@
                 text-align: center;
             }
             button2{
-                position: relative; left:720px;
+                position: relative;
+                left: 40px;
                 font-size: small;
-                background-color: #4CAF50; /* Green */
+                background-color:rgb(100, 100, 235); /* Green */
                 border: none;
                 color: white;
                 padding: 15px 32px;
@@ -27,31 +41,31 @@
                 text-align: center;
                 padding: 10px 12px;
             }
-            h1{text-align: center; position:relative; down: 00px}
+            h1{text-align: center; position:relative;}
             p{text-align: center; right: 40px;}
-            input{position:relative; left: 680px;}
             
+
         </style>
 
-
+        <script src="LogInJS.js" defer></script>
     </head>
     <body>
-        <h1>LogIn</h1>
+        <div>
+            <h1>LogIn</h1>
 
-        <form action="D:\GitLibrary\AdminPage.html">
             <p id="rcorners2">Username:</p>
-            <input type="text" name="username">
+            <input type="text" name="username" id="usernameInput">
             <p>Password:</p>
-            <input type="password" name="password">
+            <input type="password" name="password" id="passwordInput">
             <p><br></p>
-            <button type="submit">Login</button>
-        </form>
+            <button type="submit" id="loginBtn">Login</button>
 
-        <p><br></p>
-        <form action="create user">
-            <button2 type="submit">Create User</button2>
-        </form>
-       
+            <p><br></p>
+
+            <form action="create user">
+                <button2 type="submit">Create User</button2>
+            </form>
+        </div>
 
 
     </body>
