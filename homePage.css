@@ -88,3 +88,129 @@ nav{
     border-radius:75px;
 }
 
+/* - - - - - - - - - - - - - - - My Rentals Page Stuff - - - - - - - - - - - - - - - */
+
+.myRentalsHeader{
+    font-size: 40;
+    font-family:'Courier New', Courier, monospace;
+    padding: 15px;
+    text-align: center;
+}
+
+.myRentalsOptions {
+    height: 80px;
+    width: 160px;
+    border-radius:75px;
+    margin-right: 50px;
+    border-width: 4;
+    cursor: pointer;
+}
+
+.optionButtText {
+    text-decoration: none;
+    font-size: 20;
+    font-weight: bold;
+    color: white;
+}
+
+.optionButtText:hover {
+    font-size: 28;
+}
+
+#myCurrentButton {
+
+    background: rgba(32, 122, 10, 0.5);
+
+}
+
+#myLateButton {
+
+    background: rgba(202, 36, 14, 0.5);
+
+}
+
+#myCompletedButton {
+
+    background: rgba(103, 104, 165, 0.5);
+
+}
+
+#myAllButton {
+
+    background: rgba(47, 187, 13, 0.5);
+
+}
+
+/* - - - - - Games List Stuff - - - - - - - - - */
+
+.wrapper {
+    display: grid;
+    grid-template: 
+    "div div div div"
+    / 20% 20% 20% 20%;
+
+    justify-content: center;
+
+}
+
+.wrapper>div {
+    margin:20px;
+    border:5px solid black;
+    height:425px; /* 370 */
+    width:250px;
+
+     
+    padding: 10px;
+    justify-content: center;
+    justify-items: center;
+    /*border-radius:65px;*/
+
+    display:block;
+}
+
+.wrapper>div:hover {
+    border-color:white;
+}
+
+.gPic {
+    height: 150px;
+    width: 240px;
+
+    padding: 5px;
+}
+
+.newLine {
+    text-align: center;
+    color: white;
+    font-size: x-large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration: underline;
+}
+
+.gameInfo {
+
+    color: white;
+    font-size: large;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+
+.linkButton {
+
+    color: black;
+    font-size:medium;
+    font-weight: bold;
+    height: 35px;
+    width: 175px;
+    background-color: red;
+
+    margin: 7;
+
+}
+
+.linkButton:hover {
+
+    border-color: white;
+    font-size:large;
+
+}
