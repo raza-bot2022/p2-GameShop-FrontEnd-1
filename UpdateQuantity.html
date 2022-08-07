@@ -3,19 +3,41 @@
         <title>UpdateQuantity</title>
 
         <style>
+            body{background-color:cadetblue;}
+            button{
+                position: relative; left: 600px;
+            }
+            p{position: relative; left: 400px}
+            p1{position: relative; left: 800px}
+
+            main {
+                background-color: white;
+                padding: 20px;
+                border-radius: 20px;
+            }
+
 
         </style>
 
+        <script src='UpdateJS.js' defer></script>
+
     </head>
     <body>
-        <img scr="https://tbn0.gstatic.com/images?q=tbn:ANd9GcRrtxQ6x4zIDxIc_dTKXEivWbe07agazd2LWA&usqp=CAU" alt="Cat">
 
-        <form>
-            <button type="submit">Up</button>
-        </form>
-        <form>
-            <button type="submit">down</button>
-        </form>
+        <main>
+            <p>Quantity:</p>
+
+            <input type="number" id="amount" />
+
+            <button id="update">Update</button>
+
+            <section id="data">
+
+            </section>
+
+        </main>
+
+        
     
     </body>
 

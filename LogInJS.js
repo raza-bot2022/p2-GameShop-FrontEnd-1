@@ -1,8 +1,9 @@
 
 getLoggedInUser().then(setup);
+
 function setup() {
     if (!loggedInUser) {
-        let loginBtn = document.getElementById('loginBtn');
+        let loginBtn = document.getElementById('login');
         loginBtn.addEventListener('click', login);
     } else {
         window.location.href='./index.html';
@@ -11,8 +12,8 @@ function setup() {
 async function login() {
     let msgSpan = document.getElementById('msg');
     msgSpan.innerText='';
-    let username = document.getElementById('usernameInput').value;
-    let password = document.getElementById('passwordInput').value;
+    let username = document.getElementById('username').value;
+    let password = document.getElementById('password').value;
     let credentials = {username:username, passwd:password};
     let resp = await fetch(apiUrl+'/auth', {
         method:'POST',
@@ -24,14 +25,14 @@ async function login() {
     if (resp.status===200) {
         loggedInUser = await resp.json();
         if (loggedInUser) {
-            sessionStorage.setItem('game', resp.headers.get('Auth'));
-            sessionStorage.setItem('game-id', loggedInUser.user_id);
+            sessionStorage.setItem('shop', resp.headers.get('Auth'));
+            sessionStorage.setItem('user-id', loggedInUser.user_id);
             if (loggedInUser['role_id'].role_id == 2) {
                 console.log('Admin on board')
-                //window.location.href=‘./admin.html’
+                window.location.href='./AdminPage.html'
             } else {
                 msgSpan.innerText = 'Successfully';
-                window.location.href = './index.html';
+                window.location.href = './AdminPage.html';
             }
         }
     } else {
