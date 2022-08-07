@@ -1,83 +1,85 @@
 <html>
-    <head>
-        <title>LogIn</title>
-        <style>
-            div {
-                position:absolute;
-                left: 40%;
-                background-color: white;
-                padding: 20px;
-                border-radius: 20px;
-                width: 15%;
-                
-            }
+  <head>
+    <title>LogIn</title>
+    <style>
+      div {
+        position: absolute;
+        left: 40%;
+        background-color: white;
+        padding: 20px;
+        border-radius: 20px;
+        width: 15%;
+      }
 
-            body{background-color: cadetblue;}
-            
-            button{
-                position: relative;
-                left: 60px;
-                background-color: #4CAF50; /* Green */
-                border: none;
-                color: white;
-                padding: 15px 32px;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                font-size: 16px;
-                text-align: center;
-            }
-            button2{
-                position: relative;
-                left: 65px;
-                font-size: small;
-                background-color:rgb(100, 100, 235); /* Green */
-                border: none;
-                color: white;
-                padding: 15px 32px;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                text-align: center;
-                padding: 10px 12px;
-            }
-            h1{text-align: center; position:relative;}
-            p{text-align: center; right: 40px;}
-            input{position: relative; left: 30px}
-            
+      body {
+        background-color: cadetblue;
+      }
 
-        </style>
+      button {
+        position: relative;
+        left: 60px;
+        background-color: #4caf50; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        text-align: center;
+      }
+      button2 {
+        position: relative;
+        left: 65px;
+        font-size: small;
+        background-color: rgb(100, 100, 235); /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        text-align: center;
+        padding: 10px 12px;
+      }
+      h1 {
+        text-align: center;
+        position: relative;
+      }
+      p {
+        text-align: center;
+        right: 40px;
+      }
+      input {
+        position: relative;
+        left: 30px;
+      }
+    </style>
 
-        <script src="auth.js" defer></script>
-        <script src="LogInJS.js" defer></script>
-    </head>
-    <body>
-        <div>
-            <h1>LogIn</h1>
+    <script src="auth.js" defer></script>
+    <script src="LogInJS.js" defer></script>
+  </head>
+  <body>
+    <div>
+      <h1>LogIn</h1>
 
-            <p id="rcorners2">Username:</p>
-            <input type="text" name="username" id="username">
+      <p id="rcorners2">Username:</p>
+      <input type="text" name="username" id="username" />
 
-            <p>Password:</p>
-            <input type="password" name="password" id="password">
+      <p>Password:</p>
+      <input type="password" name="password" id="password" />
 
-            <p><br></p>
+      <p><br /></p>
 
-            <button type="submit" id="login">Login</button>
+      <button type="submit" id="login">Login</button>
 
-            <p><br></p>
+      <p><br /></p>
 
-            <form action="D:\GitLibrary\CreateUser.html">
-                <button2 type="submit">Create User</button2>
-            </form>
-        </div>
+      <form action="./createUser.html">
+        <button2 id="createuser" type="submit">Create User</button2>
+      </form>
+    </div>
 
-        <section id="msg">
-
-        </section>
-
-
-    </body>
-
-
+    <section id="msg"></section>
+  </body>
 </html>
