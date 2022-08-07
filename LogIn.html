@@ -4,11 +4,11 @@
         <style>
             div {
                 position:absolute;
-                left: 45%;
+                left: 40%;
                 background-color: white;
                 padding: 20px;
                 border-radius: 20px;
-                width: min-content;
+                width: 15%;
                 
             }
 
@@ -16,7 +16,7 @@
             
             button{
                 position: relative;
-                left: 30px;
+                left: 60px;
                 background-color: #4CAF50; /* Green */
                 border: none;
                 color: white;
@@ -29,7 +29,7 @@
             }
             button2{
                 position: relative;
-                left: 40px;
+                left: 65px;
                 font-size: small;
                 background-color:rgb(100, 100, 235); /* Green */
                 border: none;
@@ -43,10 +43,12 @@
             }
             h1{text-align: center; position:relative;}
             p{text-align: center; right: 40px;}
+            input{position: relative; left: 30px}
             
 
         </style>
 
+        <script src="auth.js" defer></script>
         <script src="LogInJS.js" defer></script>
     </head>
     <body>
@@ -55,17 +57,24 @@
 
             <p id="rcorners2">Username:</p>
             <input type="text" name="username" id="usernameInput">
+
             <p>Password:</p>
             <input type="password" name="password" id="passwordInput">
+
             <p><br></p>
+
             <button type="submit" id="loginBtn">Login</button>
 
             <p><br></p>
 
-            <form action="create user">
+            <form action="D:\GitLibrary\CreateUser.html">
                 <button2 type="submit">Create User</button2>
             </form>
         </div>
+
+        <section id="msg">
+
+        </section>
 
 
     </body>
