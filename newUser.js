@@ -1,4 +1,4 @@
-let apiUrl = 'http://13.57.234.28:9090'
+let api = 'http://13.57.234.28:9090'
 let registeredUser = null; 
 function createUser() {
   let createNewUser = document.getElementById("create"); 
@@ -23,9 +23,9 @@ async function register() {
     passwd: password
   }
 
-  let resp = await fetch(apiUrl+'/users', {
+  let resp = await fetch(api+'/users', {
         method:'POST',
-        body:JSON.stringify(credentials),
+        body:JSON.stringify(user),
         headers:new Headers({
             'Content-Type': 'application/json',
         })
@@ -41,5 +41,7 @@ async function register() {
         msgSpan.innerText = 'Incorrect credentials. Please try again.';
     }
 }
+
+
 
 
