@@ -1,53 +1,89 @@
 <html>
+  <head>
+    <title>GameShop Home Page</title>
+    <link rel="stylesheet" href="homePage.css" />
+    <script src="auth.js"></script>
+  </head>
 
-    <head>
-        <title>GameShop Home Page</title>
-        <link rel="stylesheet" href="homePage.css" />
-    </head>
+  <body>
+    <nav>
+      <ul class="topBar">
+        <li>
+          <img
+            src="https://i.pinimg.com/736x/5f/cc/44/5fcc44966e62533233195196b052be8f.jpg"
+            style="width: 60px"
+            alt="whoops couldn't find it"
+          />
+        </li>
+        <li>
+          <a
+            style="
+              font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial,
+                sans-serif;
+            "
+            class="button"
+            href="homePage.html"
+            >GameShop</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            id="logout"
+            onclick="logOut()"
+            class="topRightPosition topBarHover"
+            >Log Out</a
+          >
+        </li>
+        <li>
+          <a href="homePage.html" class="topRightPosition topBarHover"
+            >My Settings</a
+          >
+        </li>
+        <li
+          style="text-decoration: underline"
+          class="topRightPosition"
+          id="username"
+          onload="getUser()"
+        >
+          UserName
+        </li>
+        <li>
+          <a
+            class="topBarHover"
+            href="homePage.html"
+            style="color: white; text-decoration: underline"
+            >back to home</a
+          >
+        </li>
+      </ul>
+    </nav>
 
-    <body>
+    <!-------------------------AFTER NAV BAR------------------------------------->
 
-        <nav>
+    <h1 class="mainHeader">Welcome to GameShop!</h1>
 
-            <ul class="topBar">
-                <li><img src="https://i.pinimg.com/736x/5f/cc/44/5fcc44966e62533233195196b052be8f.jpg" style="width: 60px;" alt="whoops couldn't find it"></li>
-                <li><a style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" class="button" href="homePage.html">GameShop</a></li>
-                <li><a href="homePage.html" class="topRightPosition topBarHover">Log Out</a></li>
-                <li><a href="homePage.html" class="topRightPosition topBarHover">My Settings</a></li>
-                <li style="text-decoration:underline;" class="topRightPosition">UserName</li>
-                <li><a class = "topBarHover" href="homePage.html" style="color: white; text-decoration:underline">back to home</a></li>
-            </ul>
+    <div class="homeMainButtons">
+      <button class="bigButton" id="RentGamesButton">
+        <a class="noUnderline" href="homePage.html">Rent Games HERE!</a>
+      </button>
 
-        </nav>
+      <button class="bigButton" id="MyRentalsButton">
+        <a class="noUnderline" href="homePage.html">My Rentals</a>
+      </button>
+    </div>
 
-        <!-------------------------AFTER NAV BAR------------------------------------->
+    <!-- <script>
+      function logout() {
+        let logoutBtn = document.getElementById("logout");
+        logoutBtn.addEventListener("click", signOut);
+      }
 
-        <h1 class="mainHeader">Welcome to GameShop!</h1>
-
-        <div class="homeMainButtons">
-
-            <button class="bigButton" id="RentGamesButton">
-                
-                <a class="noUnderline" href="homePage.html">Rent Games HERE!</a>
-            
-            </button>
-
-            <button class="bigButton" id="MyRentalsButton">
-                
-                <a class="noUnderline" href="homePage.html">My Rentals</a>
-            
-            </button>
-
-
-
-        </div>
-
-
-
-
-
-
-
-    </body>
-
+      function signOut() {
+        sessionStorage.clear();
+        
+        window.location.href = "logIn.html";
+      }
+    </script> -->
+  </body>
 </html>
