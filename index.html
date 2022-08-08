@@ -126,6 +126,17 @@
         background-color: #f1f1f1;
         text-align: center;
       }
+
+      footer {
+        text-align: center;
+        color: black;
+        padding: 16px;
+
+        width: 25%;
+        margin-top:30px; 
+        margin-left:600px;
+        border-radius: 25px;
+      }
     </style>
 
     <script src="auth.js" defer></script>
@@ -133,7 +144,9 @@
   </head>
   <body>
     <div class="container">
-      <h1>LogIn</h1>
+      <h1 style="background-color: rgb(245, 214, 106); height:50px; border-radius: 20px; padding:5px ">Welcome to Gameshop</h1>
+      <h1 style="text-align: center;">LogIn</h1>
+
 
       <label for="username">Username</label>
       <input type="text" name="username" id="username" required/>
@@ -151,7 +164,15 @@
       <form  action="createUser.html">
         <button class=" loginbtn" id="createuser" type="submit">Create User</button>
       </form>
+
+      
     </div>
+
+    <footer>
+      <p>Authors: Mike, Sean, and Raza</p>
+      <a style ="color: black;">For more information, visit our store</a><br>
+      <a style="color: black;">777 Moon Dr, Suite AEX101 010001</a>
+    </footer>
 
     <section id="msg"></section>
   </body>
