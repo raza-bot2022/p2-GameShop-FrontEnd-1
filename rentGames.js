@@ -432,7 +432,7 @@ function populateIdData(response){
 
     rentButton.onclick = rentGameFunction;  
 
-    rentButton.innerHTML = "Rent Game! (TBD)";
+    rentButton.innerHTML = "Rent Game!";
 
     buttonDiv2.appendChild(rentButton);
 
@@ -603,7 +603,7 @@ function populateData(response) {
         rentButton.name = element.thumbnail;
         rentButton.description = element.short_description;
         rentButton.onclick = rentGameFunction;  
-        rentButton.innerHTML = "Rent Game! (TBD)";
+        rentButton.innerHTML = "Rent Game!";
 
         buttonDiv2.appendChild(rentButton);
 
