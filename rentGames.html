@@ -1,0 +1,78 @@
+<html>
+
+    <head>
+        <title>Rent Games</title>
+        <link rel="stylesheet" href="homePage.css" />
+        <script src="rentGames.js" defer></script>
+    </head>
+
+    <body>
+
+        <nav>
+
+            <ul class="topBar">
+                <li><img src="https://i.pinimg.com/736x/5f/cc/44/5fcc44966e62533233195196b052be8f.jpg" style="width: 60px;" alt="whoops couldn't find it"></li>
+                <li><a style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" class="button" href="homePage.html">GameShop</a></li>
+                <li><a href="homePage.html" class="topRightPosition topBarHover">Log Out</a></li>
+                <li><a href="homePage.html" class="topRightPosition topBarHover">My Settings</a></li>
+                <li style="text-decoration:underline;" class="topRightPosition">UserName</li>
+                <li><a class = "topBarHover" href="homePage.html" style="color: white; text-decoration:underline">back to home</a></li>
+            </ul>
+
+        </nav>
+
+        <!-------------------------AFTER NAV BAR------------------------------------->
+
+        <h1 class="myRentalsHeader">Rent Games</h1>
+
+        <h2 style="text-align: center; color:black; font-size:xx-large; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">SEARCH BY</h2>
+
+        <!--             NEW STUFF            -->
+
+        <input type="text" id="dataInput" />
+        <br>
+
+        <!--     <input type="button" value="Click" onclick="dosomething('Hello')">                              -->
+
+        <div class="homeMainButtons">
+
+            <button class="myRentalsOptions" id="myCurrentButton" onclick="getData('id')">
+                
+                <a class="optionButtText">Game ID</a>
+            
+            </button>
+
+            <button class="myRentalsOptions" id="myLateButton" onclick="getData('category')">
+                
+                <a class="optionButtText">Category</a>
+            
+            </button>
+
+            <button class="myRentalsOptions" id="myCompletedButton" onclick="getData('plat')">
+                
+                <a class="optionButtText">Platform</a>
+            
+            </button>
+
+            <button class="myRentalsOptions" id="myAllButton" onclick="getData('all')">
+                
+                <a class="optionButtText">All Games</a>
+            
+            </button>
+
+
+
+        </div>
+
+        <section id="data">
+
+
+
+        </section>
+
+
+
+
+    </body>
+
+</html>
