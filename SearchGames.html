@@ -3,6 +3,13 @@
         <title>Search Games</title>
 
         <style>
+
+            body{margin: 0;
+                background-image: url('https://coolbackgrounds.io/images/backgrounds/index/ranger-4df6c1b6.png');
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size:cover;}
+
             button{
                 background-color:black;
                 border: none;
@@ -13,29 +20,35 @@
                 font-size: 16px;
                 padding: 10px 10px;
             }
-
-            input{
-                padding: 10px;
-                text-align: left;
-                font-size: 16px;
+            button:hover {
+                background-color: #EEAA66;
+            }
+            button:active {
+                border: 2px solid #888888;
             }
 
         </style>
 
+        <script src="fetchgames.js" defer></script>
+
     </head>
     <body>
-        <form>
-            <input type="text">
-            <button type="submit">Search</button>
-        </form>
+
+        <main>
+            Using Fetch to get data from an API
+            <br>
+            <input type="number" id="dataInput" />
+            <button type="button" id="getData">Get Data</button>
+            <section id="data">
+
+            </section>
+        </main>
+        <br>
 
         <form action="D:\GitLibrary\UpdateQuantity.html">
-            <button type="submit">press me</button>
+            <button type="submit">press me to change quantity</button>
         </form>
-        
-
-        <img scr="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnWgy3njIRPaIt-mkAoKcPtfkpDfKU3l6cPA&usqp=CAU" alt="Cat 1">
-        <img scr="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_hmcQtS88CxnQE2bcdPjkRSSPPsEYthoTJg&usqp=CAU" alt="Cat 2">
+    
 
     </body>
 </html>
