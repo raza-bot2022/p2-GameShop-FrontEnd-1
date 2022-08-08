@@ -6,19 +6,22 @@ function createUser() {
 }
 
 async function register() {
-  let username = document.getElementById("username"); 
-  let password = document.getElementById("password"); 
-  let passwordr = document.getElementById("passwordr");
-  passwordr.addEventListener('focusout', function (password, passwordr) {
-    if (password != passwordr) {
-      window.alert("password does not much. Please reenter the password"); 
-      passwordr.focus(); 
-    }
-  })
+  let username = document.getElementById("username").value; 
+  let password = document.getElementById("password").value; 
+  let passwordr = document.getElementById("passwordr").value;
+  // passwordr.addEventListener('focusout', function (password, passwordr) {
+  //   if (password != passwordr) {
+  //     window.alert("password does not much. Please reenter the password"); 
+  //   }
+  // })
 
   let user = {
     "user_id": 1,
-    "role_id": 1, 
+     "role_id": {
+        "role_id": 1,
+        "role_name": "User",
+        "role_description": "Game Player"
+    },
     username: username, 
     passwd: password
   }
@@ -30,7 +33,7 @@ async function register() {
             'Content-Type': 'application/json',
         })
     });
-    if (resp.status===200) {
+    if (resp.status===201) {
         registeredUser = await resp.json();
       if (registeredUser) {
         window.location.href = './logIn.html';
@@ -38,9 +41,11 @@ async function register() {
         window.location.href = './createUser.html'; 
       }  
     } else {
-        msgSpan.innerText = 'Incorrect credentials. Please try again.';
+        msgSpan.innerText = 'Failed to connect.';
     }
 }
+
+createUser(); 
 
 
 
