@@ -5,6 +5,10 @@ let apiURL = 'https://www.freetogame.com/api/game?id=';
 
 //document.getElementById('getData').onclick = getData;
 
+let seshUID = sessionStorage.getItem("user-id");
+
+console.log("I LOVE HONEY: " + seshUID);
+
 
 let errorMessage = document.createElement('p');
 //errorMessage.style = "text-align:center; font-size:100; color:black; font-weight: 900";
@@ -153,15 +157,107 @@ async function getData(type) {
 
 }
 
-function stupid(){
+function stupid(userID, gameID){
 
-    console.log("CLICKED ME MWAAHAHAHAHAHAH");
+    console.log(userID + "   " + gameID);
+
+    //----- GETTING INFO FOR INSERT------------ //
+
+
+    async function getUserInfo(){
+        
+        let earl = "http://3.82.175.143:8080/users/" + userID;
+
+        let earlResponse = await fetch(earl);
+    
+        if(earlResponse.status === 200){
+            console.log("HOORARY WE ADDED TO THE TABLE!! FUCK!")
+
+            let userOBJ = await earlResponse.json();
+
+            //console.log(userOBJ);
+
+            return userOBJ;
+
+         }
+        else{
+            console.log("shut up sean you are WICKED CRACKED");
+        }
+
+    }
+
+    async function getGameInfo(){
+        
+        let earl = "http://3.82.175.143:8080/games/" + gameID;
+
+        let earlResponse = await fetch(earl);
+    
+        if(earlResponse.status === 200){
+            console.log("HOORARY WE ADDED TO THE GAMEEESESE TABLE!! FUCK!")
+
+            let gameOBJ = await earlResponse.json();
+
+            //console.log(userOBJ);
+
+            return gameOBJ;
+
+         }
+        else{
+            console.log("shut up sean you are WICKED CRACKED");
+        }
+
+    }
+
+    // ----------------------------------------//
+
+    let permRentID = 1;
+
+    let permRentStatus = "current";
+
+    console.log("THIS SHOULD BE YES: " + permRentID + " " + userID + " " + gameID +  " " + permRentStatus);
+
+    let numUID = Number(userID);
+    let numGID = Number(gameID);
+
+    async function insertRentalHistory(){
+
+        // -------------------------------------
+
+        let seanIsCool = await getUserInfo();
+        let andyIsMEGACool = await getGameInfo();
+
+        // -------------------------------------
+
+        let earl = "http://3.82.175.143:8080/history";
+
+        let rentalObject = {"rental_id": permRentID, "user_id": seanIsCool, "game_id": andyIsMEGACool, "rentalStatus": permRentStatus};
+
+        console.log(JSON.stringify(rentalObject));
+
+        let earlResponse = await fetch(earl,{
+            method: 'POST',
+            body:JSON.stringify(rentalObject),
+            headers:new Headers({'Content-Type': 'application/json',})
+        });
+    
+        if(earlResponse.status === 200){
+            console.log("HOORARY WE ADDED TO THE TABLE!! FUCK!")
+         }
+        else{
+            console.log("shut up sean you are WICKED CRACKED");
+        }
+    }
+
+    // ------------------------------------------------------------------
+
+    insertRentalHistory();
 
 }
 
+
 function rentGameFunction(){
 
-    console.log("ADASFAF");
+    console.log("In Rent Game Function");
 
     console.log(this.id);
     console.log(this.title);
@@ -223,11 +319,28 @@ function rentGameFunction(){
     newBox.innerHTML += "<br><br>";
 
 
+    console.log("before create button");
+
+    let confirmDiv = document.createElement('div');
+
     let confirmButton1 = document.createElement('button');
     confirmButton1.setAttribute("class", "confirmButton");
+
     confirmButton1.innerHTML = "Confirm Rental";
-    confirmButton1.onclick = stupid;
-    newBox.appendChild(confirmButton1);
+
+    let tornado = sessionStorage.getItem('user-id');
+
+    confirmButton1.setAttribute("onclick", "stupid(" + tornado + ", " + clickedID + ")");
+
+    confirmDiv.appendChild(confirmButton1);
+
+    console.log("after created button");
+    console.log(confirmButton1.innerHTML);
+
+
+    // ----------------------
+
+    newBox.appendChild(confirmDiv);
 
     newBox.innerHTML += "<br><small>...getting quantity</small>";
     
@@ -307,6 +420,8 @@ function populateIdData(response){
     buttonDiv2.style = "text-align: center; position:absolute; left:40px; top:74%;";
     buttonDiv2.innerHTML = "<br>";
 
+    console.log("Creating Rent Button");
+
     let rentButton = document.createElement('button');
     rentButton.setAttribute("class", "linkButton");
 
@@ -314,7 +429,9 @@ function populateIdData(response){
     rentButton.title = response.title;
     rentButton.name = response.thumbnail;
     rentButton.description = response.short_description;
+
     rentButton.onclick = rentGameFunction;  
+
     rentButton.innerHTML = "Rent Game! (TBD)";
 
     buttonDiv2.appendChild(rentButton);
@@ -322,6 +439,8 @@ function populateIdData(response){
 
     //   -    -     -      -      -     -      -     //
 
+
+    console.log("Line 327");
 
     let buttonDiv = document.createElement('div');
     buttonDiv.style = "text-align: center; position:absolute; left:40px; top:88%;";
@@ -337,6 +456,8 @@ function populateIdData(response){
     temp.appendChild(buttonDiv2);
 
     temp.appendChild(buttonDiv);
+
+    console.log("Line 345");
 
     // - - - GOOD COPY -------///
 
