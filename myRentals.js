@@ -6,9 +6,9 @@
 
 let apiURL = 'https://www.freetogame.com/api/game?id='; 
 
-//document.getElementById('myAllButton').onclick = getData;
+document.getElementById('myAllButton').onclick = getAllData;
 
-document.getElementById('getData').onclick = getData;
+//document.getElementById('getData').onclick = getData;
 
 let errorMessage = document.createElement('p');
 
@@ -16,153 +16,195 @@ console.log(apiURL);
 
 //createGameDiv();
 
-// --------------------------------------------------------------
+// GET USER INPUT 
 
-function createGameDiv() {
-
-    // - - - - - - - - NEW SHIT - - - - - - - - - // 
-
-    gamesListDiv.innerHTML = '';
-
-    for(let index = 0; index < 3; index++){
-
-        let temp = document.createElement('div');
-
-        temp.style = 'background-color: blue;';
-
-        let temp2 = document.createElement('img');
-
-        temp2.src = 'https://www.freetogame.com//g//5//thumbnail.jpg'
-
-        temp.appendChild(temp2);
-
-        gamesListDiv.appendChild(temp);
-
-    }
-
-
-    return;
-
-    // - - - - ---------------------------- - - - //
-
-    guesses.innerHTML = '';
-
-    console.log("GOT HERE NOW!!!");
-
-    for(let index = 0; index < 5; index++){
-        console.log("code " + index + ": " + allHexCodes[index]);
-
-        let testing = document.createElement('div');
-
-        //testing.innerHTML = allHexCodes[index];
-        testing.style = 'background-color: ' + allHexCodes[index] + ';';
-
-        guesses.appendChild(testing);
-
-        if(allHexCodes[index] == correctHexCode){
-            testing.addEventListener('click', correctAnswer);
-        }
-        else{
-            testing.addEventListener('click', incorrectAnswer);
-        }
-
-    }
-
-}
-
+// let userInput = document.getElementById('dataInput').value;
 
 // --------------------------------------------------------------
 
-async function getData() {
+let poo = document.createElement("div");
+poo.setAttribute("class", "wrapper");
+
+async function getAllData() {
+
+    console.log("GOT HERE");
 
     let dataSection = document.getElementById('data');
 
-    // If using input for identifiers, etc.
-    // For example, if using PokeAPI, this may be the Pokemon's ID.
-
-    let userInput = document.getElementById('dataInput').value; 
-    // let userInput = 5;
-
-    // Emptying out the div before inserting new data.
-    //document.getElementById('data').innerHTML = '';
+    dataSection.innerHTML = '';
 
     // THIS IS GET REQUEST
 
-    let response = await fetch("https://www.freetogame.com/api/games?category=card");
+    for(let bread = 5; bread < 20 ; bread++){
+        let response = await fetch("http://3.82.175.143:8080/history/" + bread);
 
-    //let response = await fetch(apiURL + userInput); 
+        if (response.status === 200) {
+            let data = await response.json(); //same as JSON.parse(response);
     
-    console.log("https://www.freetogame.com/api/games?category=shooter");
-    console.log(apiURL + userInput);
+            populateData(data);
+        } else {
+    
+            errorMessage.innerHTML = "Can't find game";
+    
+        }
 
-    // OR let response = await fetch({method: 'POST', body:JSON.stringify(myObj), headers: {}});
-    // ^ THIS IS POST REQUEST WITH FETCH
+    }
 
-    errorMessage.innerHTML = "";
+    return;
+
+    let response = await fetch("http://3.82.175.143:8080/history/9");
+
+    //errorMessage.innerHTML = "";
 
     if (response.status === 200) {
         let data = await response.json(); //same as JSON.parse(response);
-        console.log("YESYESYES");
+
         populateData(data);
     } else {
-        //let dataSection = document.getElementById('data');
+
         errorMessage.innerHTML = "Can't find game";
-        //dataSection.innerHTML = 'Can not Find Game';
+
     }
 
-    dataSection.appendChild(errorMessage);
 }
 
 // --------------------------------------------------------------
 
-function populateData(response) {
-    console.log("sean is cracked");
+function printGameInfo(theData, rentalInfo){
+
     let dataSection = document.getElementById('data');
+
+    let temp = document.createElement('div');
+    temp.setAttribute("id", "theBigGreen");
+
+    temp.style = 'background-color: rgba(47, 187, 13, 0.85)';
+
+    let gaYmeTitle = document.createElement('div');
+    gaYmeTitle.innerHTML = theData.title;
+    gaYmeTitle.setAttribute("class", "gameInfo");
+    gaYmeTitle.style = "text-align: center; font-size: 25; font-weight: 900;";
+
+    temp.appendChild(gaYmeTitle);
+
+    let gaYmePic = document.createElement('img');
+    gaYmePic.setAttribute("class", "gPic");
+    gaYmePic.src = theData.thumbnail;
+
+    temp.appendChild(gaYmePic);
+
+    let thisThat = document.createElement('div');
+    thisThat.innerHTML = "User ID = " + rentalInfo.user_id.user_id + "<br>UserName = " + rentalInfo.user_id.username;
+    thisThat.style = "font-size: 20; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;";
+
+    temp.appendChild(thisThat);
+
+    let ThatThis = document.createElement('div');
+    ThatThis.innerHTML = "<br>Rental ID = " + rentalInfo.rental_id + "<br>Rental Status = " + rentalInfo.rentalStatus;
+    ThatThis.style = "font-size: 20; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;";
+
+    temp.appendChild(ThatThis);
+
+    let returnRental = document.createElement('button');
+    returnRental.innerHTML = "RETURN RENTAL HERE";
+
+    let ponies = rentalInfo;
+
+    console.log(ponies.rentalStatus);
+
+    let theBetterPony = [ponies.rental_id, ponies.user_id, ponies.game_id,ponies.rentalStatus];
+
+    returnRental.setAttribute("onclick", "updateTheFuckingIdontCareIts4am(" +  "'" + theBetterPony + "'" + ")");
+    //returnRental.setAttribute("onclick", "updateTheFuckingIdontCareIts4am()");
+
+    //temp.appendChild(returnRental);
+
+    
+
+    poo.appendChild(temp);
+
+    dataSection.appendChild(poo);
+
+}
+
+async function updateTheFuckingIdontCareIts4am(bigInfo){
+
+    let Array = bigInfo;
+
+    console.log(Array[1]);
+
+    console.log("YES: " + bigInfo);
+    console.log(bigInfo[0]);
+    console.log(bigInfo[1]);
+    console.log(bigInfo[2]);
+    console.log(bigInfo[3]);
+
+    let newPikachu = {"rental_id": bigInfo[0], "user_id": bigInfo[1], "game_id": bigInfo[2], "rentalStatus": bigInfo[3]};
+
+    console.log(newPikachu);
+
+    return;
+
+    let tokp = bigInfo;
+    console.log("Tokp PLESASE? " + tokp);
+    console.log("HOT DOG " + bigInfo.user_id);
+
+    let earl = "http://3.82.175.143:8080/history/" + bigInfo.rental_id;
+
+    return;
+
+    let rentalObject = {"rental_id": permRentID, "user_id": seanIsCool, "game_id": andyIsMEGACool, "rentalStatus": permRentStatus};
+
+    console.log(JSON.stringify(rentalObject));
+
+    let earlResponse = await fetch(earl,{
+        method: 'POST',
+        body:JSON.stringify(rentalObject),
+        headers:new Headers({'Content-Type': 'application/json',})
+    });
+    
+    if(earlResponse.status === 200){
+        console.log("HOORARY WE ADDED TO THE TABLE!! FUCK!")
+    }
+    else{
+        console.log("shut up sean you are WICKED CRACKED");
+    }
+
+
+
+
+    console.log("PENIS");
+
+}
+
+
+
+
+
+
+async function populateData(response) {
+    console.log("sean is cracked");
+
+    let theRentalInfo = response;
 
     // - - - - - - - - - - - - - - - - - - - - - - -
 
-    // BY CATEGORY
+    response = await fetch("https://www.freetogame.com/api/game?id=" + response.game_id.game_id);
 
-    let poo = document.createElement("div");
-    poo.setAttribute("class", "wrapper");
+    if (response.status === 200) {
+        let data = await response.json(); 
+        console.log(data);
+        printGameInfo(data, theRentalInfo);
+    } else {
+        console.log("error... :(");
+    }
 
-    // counter= 0
 
-    response.forEach(element => {
+
+
+
+    // - - - - - - - - - - - - - - - 
 
         /*
-
-        query ddatabase of elemnt Id 
-            get quantity
-            ifwaunti = 0{
-
-            }
-            else{
-
-                counter++
-            }
-
-        */
-
-        let temp = document.createElement('div');
-
-        temp.style = 'background-color: blue;';
-
-        let temp2 = document.createElement('img');
-        temp2.setAttribute("class", "gPic");
-
-        temp2.src = element.thumbnail; 
-
-        temp.appendChild(temp2);
-
-        // - - - - - - - - - - - - - - - 
-
-        let divCeption = document.createElement('div');
-        divCeption.setAttribute("class", "newLine");
-
-        divCeption.innerHTML = capitalize(element.title);
-
-        temp.appendChild(divCeption);
 
         // - - - - - - - - - - - - - - - -
 
@@ -209,9 +251,14 @@ function populateData(response) {
 
         // - - - - - - - - - - - - - - - - 
 
-        poo.appendChild(temp);
+        */
 
-    });
+
+
+        
+
+
+
 
     /*
 
@@ -224,7 +271,7 @@ function populateData(response) {
 
     */
 
-    dataSection.appendChild(poo);
+    
 
 
 
