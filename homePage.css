@@ -141,6 +141,17 @@ nav{
 
 }
 
+/* - - - - - - - Search Games - - - - - - - - - - */
+
+#dataInput {
+    display: flex;
+    margin-right: auto;
+    margin-left: auto;
+    height: 25px;
+    width: 150px;
+;
+}
+
 /* - - - - - Games List Stuff - - - - - - - - - */
 
 .wrapper {
@@ -153,19 +164,32 @@ nav{
 
 }
 
+.wrapper2 {
+    display: grid;
+    grid-template: 
+    "div";
+
+    justify-content: center;
+
+    padding:50;
+
+}
+
 .wrapper>div {
     margin:20px;
     border:5px solid black;
-    height:425px; /* 370 */
+    height:450px; /* 370 */
     width:250px;
 
      
     padding: 10px;
     justify-content: center;
     justify-items: center;
-    /*border-radius:65px;*/
+    border-radius:65px;
 
     display:block;
+
+    position: relative;
 }
 
 .wrapper>div:hover {
@@ -173,10 +197,11 @@ nav{
 }
 
 .gPic {
-    height: 150px;
-    width: 240px;
+    height: 130px;
+    width: 220px;
 
-    padding: 5px;
+    padding: 14px;
+
 }
 
 .newLine {
@@ -204,7 +229,10 @@ nav{
     width: 175px;
     background-color: red;
 
+    border-radius:65px;
+
     margin: 7;
+
 
 }
 
@@ -212,5 +240,57 @@ nav{
 
     border-color: white;
     font-size:large;
+
+}
+
+#errDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 200px;
+    width: 1000px;
+    background-color: red;
+    color: black;
+
+    border:10px solid black;
+
+}
+
+
+/* - - - - - Click on Game to Rent - - - - - - */
+
+.clickedRentGame {
+
+    height:550px;
+    width: 900px; 
+    border:5px solid black; 
+    margin: auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
+
+    background: rgba(80, 31, 158, 0.8);
+    font-size: 25;
+    font-weight: 900;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+
+    text-align: center;
+
+}
+
+.confirmButton{
+
+    font-size: 20;
+    font-weight: bold;
+    background-color: red;
+    border:3px solid black; 
+    border-radius: 65px;
+}
+
+.confirmButton:hover {
+    font-size: 22;
+    border:3px solid white;
+
 
 }
