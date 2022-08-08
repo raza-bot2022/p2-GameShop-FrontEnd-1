@@ -36,9 +36,9 @@ async function register() {
     if (resp.status===201) {
         registeredUser = await resp.json();
       if (registeredUser) {
-        window.location.href = './logIn.html';
+        window.location.href = 'index.html';
       } else {
-        window.location.href = './createUser.html'; 
+        window.location.href = 'createUser.html'; 
       }  
     } else {
         msgSpan.innerText = 'Failed to connect.';

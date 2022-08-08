@@ -27,6 +27,7 @@ async function login() {
         if (loggedInUser) {
             sessionStorage.setItem('shop', resp.headers.get('Auth'));
             sessionStorage.setItem('user-id', loggedInUser.user_id);
+            sessionStorage.setItem('user-name', loggedInUser.username); 
             if (loggedInUser['role_id'].role_id == 2) {
                 console.log('Admin on board')
                 window.location.href='./homePage.html'

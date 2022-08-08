@@ -40,14 +40,13 @@
             >My Settings</a
           >
         </li>
-        <!-- <li
+        <li
           style="text-decoration: underline"
           class="topRightPosition"
           id="username"
-          onload="getUser()"
         >
           UserName
-        </li> -->
+        </li>
         <li>
           <a
             class="topBarHover"
@@ -73,17 +72,12 @@
       </button>
     </div>
 
-    <!-- <script>
-      function logout() {
-        let logoutBtn = document.getElementById("logout");
-        logoutBtn.addEventListener("click", signOut);
+    <script>
+      function showUser() {
+        let u = document.getElementById("username");
+        u.innerHTML = sessionStorage.getItem("user-name");
       }
-
-      function signOut() {
-        sessionStorage.clear();
-        
-        window.location.href = "logIn.html";
-      }
-    </script> -->
+      showUser();
+    </script>
   </body>
 </html>
