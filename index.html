@@ -1,0 +1,179 @@
+<html>
+  <head>
+    <title>LogIn</title>
+    <!-- <style>
+      div {
+        position: absolute;
+        left: 40%;
+        background-color: white;
+        padding: 20px;
+        border-radius: 20px;
+        width: 15%;
+      }
+
+      body {
+        background-color: cadetblue;
+      }
+
+      button {
+        position: relative;
+        left: 60px;
+        background-color: #4caf50; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        text-align: center;
+      }
+      button2 {
+        position: relative;
+        left: 65px;
+        font-size: small;
+        background-color: rgb(100, 100, 235); /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        text-align: center;
+        padding: 10px 12px;
+      }
+      h1 {
+        text-align: center;
+        position: relative;
+      }
+      p {
+        text-align: center;
+        right: 40px;
+      }
+      input {
+        position: relative;
+        left: 30px;
+      }
+    </style> -->
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: cadetblue;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      /* Add padding to containers */
+      .container {
+        padding: 16px;
+        background-color: white;
+        width: 25%;
+        margin: auto;
+        border-radius: 25px;
+      }
+
+      /* Full-width input fields */
+      input[type="text"],
+      input[type="password"] {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 22px 0;
+        display: block;
+        border: none;
+        background: #f1f1f1;
+      }
+
+      input[type="text"]:focus,
+      input[type="password"]:focus {
+        background-color: #ddd;
+        outline: none;
+      }
+
+      /* Overwrite default styles of hr */
+      hr {
+        border: 1px solid #f1f1f1;
+        margin-bottom: 25px;
+      }
+
+      /* Set a style for the submit button */
+      .loginbtn {
+        background-color: #04aa6d;
+        color: white;
+        padding: 16px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        opacity: 0.9;
+      }
+
+      .loginbtn:hover {
+        opacity: 1;
+      }
+
+      /* Add a blue text color to links */
+      a {
+        color: dodgerblue;
+      }
+
+      /* Set a grey background color and center the text of the "sign in" section */
+      .registerin {
+        background-color: #f1f1f1;
+        text-align: center;
+      }
+
+      footer {
+        text-align: center;
+        color: black;
+        padding: 16px;
+
+        width: 25%;
+        margin-top:30px; 
+        margin-left:600px;
+        border-radius: 25px;
+      }
+    </style>
+
+    <script src="auth.js" defer></script>
+    <script src="LogInJS.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1 style="background-color: rgb(245, 214, 106); height:50px; border-radius: 20px; padding:5px ">Welcome to Gameshop</h1>
+      <h1 style="text-align: center;">LogIn</h1>
+
+
+      <label for="username">Username</label>
+      <input type="text" name="username" id="username" required/>
+
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" required />
+
+      <br>
+
+      <button class="loginbtn" type="submit" id="login">Login</button>
+
+      <br>
+      <br>
+
+      <form  action="createUser.html">
+        <button class=" loginbtn" id="createuser" type="submit">Create User</button>
+      </form>
+
+      
+    </div>
+
+    <footer>
+      <p>Authors: Mike, Sean, and Raza</p>
+      <a style ="color: black;">For more information, visit our store</a><br>
+      <a style="color: black;">777 Moon Dr, Suite AEX101 010001</a>
+    </footer>
+
+    <section id="msg"></section>
+  </body>
+</html>
