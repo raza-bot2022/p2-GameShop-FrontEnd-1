@@ -6,19 +6,21 @@ async function getData() {
     console.log("got here");
     // If using input for identifiers, etc.
     // For example, if using PokeAPI, this may be the Pokemon's ID.
-    var userInput = document.getElementById('dataInput').value; 
-    console.log(apiURL + userInput);
+    let userInput = document.getElementById('dataInput').value; 
+
+    localStorage.setItem("input", userInput);
 
     // Emptying out the div before inserting new data.
     document.getElementById('data').innerHTML = '';
 
     let dataSection = document.getElementById('data');
 
-    let response = await fetch(apiURL + userInput,);
+    let response = await fetch(apiURL + userInput);
 
     if (response.status === 200) {
         console.log("200 response")
         let data = await response.json();
+        localStorage.setItem('data', data);
         populateData(data);
     } else {
         dataSection.innerHTML = 'It Got Away!';
@@ -33,12 +35,17 @@ function populateData(response) {
     nameTag.innerHTML = response.title;
 
     let des = document.createElement('description');
-    des.innerHTML = response.description;
+    des.innerHTML = response.short_description;
+
+    let gamePic = document.createElement('img');
+    gamePic.src = response.thumbnail;
+    dataSection.appendChild(gamePic);
 
     dataSection.appendChild(nameTag);
     dataSection.appendChild(des);
 
-    dataSection.innerHTML += 'anything';
+    let thing = localStorage.getItem('thumbnail');
+        console.log(thing);
 
 
 }
