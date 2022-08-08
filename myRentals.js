@@ -36,7 +36,7 @@ async function getAllData() {
     // THIS IS GET REQUEST
 
     for(let bread = 5; bread < 20 ; bread++){
-        let response = await fetch("http://3.82.175.143:8080/history/" + bread);
+        let response = await fetch("http://13.57.234.28:9090/history/" + bread);
 
         if (response.status === 200) {
             let data = await response.json(); //same as JSON.parse(response);
