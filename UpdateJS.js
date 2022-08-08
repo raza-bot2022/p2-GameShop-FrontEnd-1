@@ -1,6 +1,6 @@
 let apiURL = 'https://www.freetogame.com/api/game?id=';
 
-let BEURL = 'http://18.188.201.179:8080/games/'
+let BEURL = 'http://13.57.234.28:9090/games/'
 
 document.getElementById('update').onclick = getData;
 

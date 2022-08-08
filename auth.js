@@ -1,11 +1,11 @@
 let apiUrl = 'http://13.57.234.28:9090';
 let loggedInUser;
-let resp;
+
 // retrieve the currently logged in user from the back end
 async function getLoggedInUser() {
     let userId = sessionStorage.getItem('user-id');
     if (userId) {
-            resp = await fetch(apiUrl+'/users/'+userId, {
+            let resp = await fetch(apiUrl+'/users/'+userId, {
             headers:new Headers({
                 'Auth':sessionStorage.getItem('shop')
             })

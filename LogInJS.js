@@ -30,10 +30,9 @@ async function login() {
             sessionStorage.setItem('user-name', loggedInUser.username); 
             if (loggedInUser['role_id'].role_id == 2) {
                 console.log('Admin on board')
-                window.location.href='./homePage.html'
+                window.location.href='AdminPage.html'
             } else {
-                msgSpan.innerText = 'Successfully';
-                window.location.href = './homePage.html';
+                window.location.href = 'homePage.html';
             }
         }
     } else {

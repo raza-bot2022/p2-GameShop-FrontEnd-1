@@ -166,17 +166,13 @@ function stupid(userID, gameID){
 
     async function getUserInfo(){
         
-        let earl = "http://3.82.175.143:8080/users/" + userID;
+        let earl = "http://13.57.234.28:9090/users/" + userID;
 
         let earlResponse = await fetch(earl);
     
         if(earlResponse.status === 200){
-            console.log("HOORARY WE ADDED TO THE TABLE!! FUCK!")
-
             let userOBJ = await earlResponse.json();
-
             //console.log(userOBJ);
-
             return userOBJ;
 
          }
@@ -188,17 +184,13 @@ function stupid(userID, gameID){
 
     async function getGameInfo(){
         
-        let earl = "http://3.82.175.143:8080/games/" + gameID;
+        let earl = "http://13.57.234.28:9090/games/" + gameID;
 
         let earlResponse = await fetch(earl);
     
         if(earlResponse.status === 200){
-            console.log("HOORARY WE ADDED TO THE GAMEEESESE TABLE!! FUCK!")
-
             let gameOBJ = await earlResponse.json();
-
             //console.log(userOBJ);
-
             return gameOBJ;
 
          }
@@ -228,7 +220,7 @@ function stupid(userID, gameID){
 
         // -------------------------------------
 
-        let earl = "http://3.82.175.143:8080/history";
+        let earl = "http://13.57.234.28:9090/history";
 
         let rentalObject = {"rental_id": permRentID, "user_id": seanIsCool, "game_id": andyIsMEGACool, "rentalStatus": permRentStatus};
 
@@ -288,7 +280,7 @@ function rentGameFunction(){
     async function blah(){
 
         let tempID = clickedID;
-        let earl = "http://3.82.175.143:8080/games/" + tempID;
+        let earl = "http://13.57.234.28:9090/games/" + tempID;
     
         let earlResponse = await fetch(earl);
     

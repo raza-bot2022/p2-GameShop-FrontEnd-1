@@ -3,7 +3,6 @@ let apiURL = 'https://www.freetogame.com/api/game?id=';
 document.getElementById('getData').onclick = getData;
 
 async function getData() {
-    console.log("got here");
     // If using input for identifiers, etc.
     // For example, if using PokeAPI, this may be the Pokemon's ID.
     let userInput = document.getElementById('dataInput').value; 
@@ -18,7 +17,6 @@ async function getData() {
     let response = await fetch(apiURL + userInput);
 
     if (response.status === 200) {
-        console.log("200 response")
         let data = await response.json();
         localStorage.setItem('data', data);
         populateData(data);
